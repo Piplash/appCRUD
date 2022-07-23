@@ -21,6 +21,7 @@ import { navItems } from '../../interfaces/nav-items';
         margin-left: 5%;
         margin-right: 5%;
         margin-top: 20px;
+        margin-bottom: 50px;
         height: 100%;
       }
 
