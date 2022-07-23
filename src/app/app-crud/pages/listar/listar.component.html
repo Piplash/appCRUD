@@ -1,0 +1,43 @@
+<h2>Preparaciones</h2>
+<hr>
+<div class="table-responsive">
+  <table datatable class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre Preparación</th>
+        <th scope="col">Creador</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Ingredientes</th>
+        <th scope="col">Grados</th>
+        <th scope="col">Fecha Creación</th>
+        <th scope="col">Restricción Edad</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+        <!-- Ciclo for para llenar tabla en base a los usuarios registrados. Se obtiene desde listar.component -->
+        <ng-container *ngFor="let prep of preparaciones; let i = index">
+            <tr>
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ prep.nombre }}</td>
+                <td>{{ prep.creador }}</td>
+                <td>{{ prep.descripcion }}</td>
+                <td>{{ prep.ingredientes }}</td>
+                <td>{{ prep.grados }}</td>
+                <!-- Pipe para dar formato a la fecha -->
+                <td>{{ prep.creacion | date: "dd-MM-yyyy" }}</td>
+                <!-- Reemplaza "true" o "false" por "Sí" o "No" -->
+                <td *ngIf="prep.restriccion==true; else elseBlock">Sí</td>
+                <ng-template #elseBlock>
+                    <td>No</td>
+                </ng-template>
+                <!-- Al hacer click, se dispara alguna de las dos funciones a las cuales se les enrega un Usuario -->
+                <td class="eliminarEditar" (click)="updatePreparacion(prep)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></td>
+                <td class="eliminarEditar" (click)="eliminarPreparacion(prep)"><i class="fa fa-trash" aria-hidden="true"></i></td>
+            </tr>
+        </ng-container>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,122 @@
+<h2>Nueva Preparación</h2>
+<hr>
+<!-- FORMULARIO DE REGISTRO/EDICIÓN -->
+<form class="formulario">
+  <!-- FILA | DIVIDIDA EN DOS COLUMNAS -->
+  <div class="form-row">
+
+    <!-- PRIMERA MITAD | col-md6 -->
+    <div class="form-group col-md-6">
+      <!-- LABEL E INPUT | # Hace referencia a las validaciones | ngModel para escuchar y entregar datos -->
+      <label for="inputNombre">Nombre</label>
+      <input type="text" class="form-control" id="inputNombre" name="inputNombre" #inputNombre="ngModel" minlength="2" [(ngModel)]="preparacion.nombre" placeholder="Navegado" required>
+      <!-- VALIDACIONES -->
+      <div *ngIf="inputNombre.invalid && (inputNombre.dirty || inputNombre.touched)" class="alert">
+
+        <div *ngIf="inputNombre.errors?.['required']">Complete el campo</div>
+        <div *ngIf="inputNombre.errors?.['minlength']">El campo debe tener mínimo 2 caracteres</div>
+
+      </div>
+      <!-- FIN VALIDACIONES -->
+    </div>
+    <!-- SEGUNDA MITAD | col-md6 -->
+    <div class="form-group col-md-6">
+      <!-- LABEL E INPUT | # Hace referencia a las validaciones | ngModel para escuchar y entregar datos -->
+      <label for="inputApellido">Creador/a</label>
+      <input type="text" class="form-control" id="inputCreador" name="inputCreador" #inputCreador="ngModel" minlength="2" [(ngModel)]="preparacion.creador" placeholder="Juan Pérez" required>
+      <!-- VALIDACIONES -->
+      <div *ngIf="inputCreador.invalid && (inputCreador.dirty || inputCreador.touched)" class="alert">
+
+        <div *ngIf="inputCreador.errors?.['required']">Complete el campo</div>
+        <div *ngIf="inputCreador.errors?.['minlength']">El campo debe tener mínimo 2 caracteres</div>
+
+      </div>
+      <!-- FIN VALIDACIONES -->
+    </div>
+
+  </div>
+  <!-- FIN PRIMERA FILA -->
+
+  <!-- SEGUNDA FILA | OCUPA TODA LA FILA-->
+  <div class="form-group">
+    <!-- LABEL Y TEXTAREA | # hace referencia a las validaciones | ngModel para escuchar y entregar datos -->
+    <label for="textareaDescripcion">Descripción</label>
+    <textarea class="form-control" id="textareaDescripcion" name="textareaDescripcion" #textareaDescripcion="ngModel" rows="3" maxlength="255" [(ngModel)]="preparacion.descripcion" required></textarea>
+    <!-- VALIDACIONES -->
+    <div *ngIf="textareaDescripcion.invalid && (textareaDescripcion.dirty || textareaDescripcion.touched)" class="alert">
+
+      <div *ngIf="textareaDescripcion.errors?.['required']">Complete el campo</div>
+
+    </div>
+    <!-- FIN VALIDACIONES -->
+  </div>
+
+  <!-- TERCERA FILA | DIVIDIDA EN 3 COLUMNAS -->
+  <div class="form-row">
+    <!-- PRIMERA COLUMNA -->
+    <div class="form-group col-md-4">
+      <!-- LABEL E INPUT | # Hace referencia a las validaciones | ngModel para escuchar y entregar datos -->
+      <label for="inputIng">Ingredientes Necesarios</label>
+      <input type="number" min="1" step="1" class="form-control" id="inputIng" name="inputIng" #inputIng="ngModel" [(ngModel)]="preparacion.ingredientes" required>
+      <!-- VALIDACIONES -->
+      <div *ngIf="inputIng.invalid && (inputIng.dirty || inputIng.touched)" class="alert">
+
+        <div *ngIf="inputIng.errors?.['required']">Complete el campo</div>
+        <div *ngIf="inputIng.errors?.['min']">La cantidad mínima es 1</div>
+
+      </div>
+      <!-- FIN VALIDACIONES -->
+    </div>
+
+    
+    <!-- SEGUNDA COLUMNA -->
+    <div class="form-group col-md-4">
+      <!-- LABEL E INPUT | # Hace referencia a las validaciones | ngModel para escuchar y entregar datos -->
+      <label for="inputGrados">Graduación Alcohólica</label>
+      <input type="number" min="0" max="100" step="0.1" class="form-control" id="inputGrados" name="inputGrados" #inputGrados="ngModel" [(ngModel)]="preparacion.grados" required>
+      <!-- VALIDACIONES -->
+      <div *ngIf="inputGrados.invalid && (inputGrados.dirty || inputGrados.touched)" class="alert">
+
+        <div *ngIf="inputGrados.errors?.['required']">Complete el campo</div>
+        <div *ngIf="inputGrados.errors?.['min']">La graduación mínima es 0</div>
+        <div *ngIf="inputGrados.errors?.['max']">La graduación máxima es 100</div>
+
+      </div>
+      <!-- FIN VALIDACIONES -->
+    </div>
+
+    <!-- TERCERA COLUMNA-->
+    <div class="form-group col-md-4">
+      <!-- LABEL E INPUT | # Hace referencia a las validaciones | ngModel para escuchar y entregar datos -->
+      <label for="inputFecha">Fecha de Creación</label>
+      <input type="date" class="form-control selectorFecha" id="inputFecha"  name="inputFecha" #inputFecha="ngModel" [(ngModel)]="preparacion.creacion" required>
+      <!-- VALIDACIONES -->
+      <div *ngIf="inputFecha.invalid && (inputFecha.dirty || inputFecha.touched)" class="alert">
+
+        <div *ngIf="inputFecha.errors?.['required']">
+          Complete el campo
+        </div>
+
+      </div>
+      <!-- FIN VALIDACIONES -->
+    </div>
+
+  </div>
+
+  <!-- ÚLTIMA FILA -->
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="checkRestriccion" name="checkRestriccion" [(ngModel)]="preparacion.restriccion">
+      <label class="form-check-label" for="checkRestriccion">
+        Solo +18
+      </label>
+    </div>
+  </div>
+  
+  <!-- BOTÓN QUE DISPARA A LA FUNCIÓN guardarDatos -->
+  <button type="submit" (click)="guardarDatos()" class="btn btn-custom">
+    Confirmar
+  </button>
+
+</form>
+

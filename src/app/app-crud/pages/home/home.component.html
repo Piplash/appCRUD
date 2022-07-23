@@ -1,0 +1,33 @@
+<!-- INICIO DE NAVBAR -->
+<div id="navbar"> 
+    
+    <nav class="navbar navbar-expand-lg navbar-dark custom-nav">
+        <span class="navbar-brand">CRUD-APP</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <!-- ARRAY DINÁMICO CON CONTENIDO DEL NAV, QUE SE LLENA DESDE HOME.COMPONENT -->
+                <ng-container *ngFor="let item of navItems">
+                    <li class="nav-item">
+                        <a routerLink={{item.link}} routerLinkActive="active" class="nav-link" mat-tab-link>{{item.label}}</a>
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+    </nav>
+    
+</div>
+<!-- FIN NAVBAR -->
+
+<!-- CUERPO DEL SITIO -->
+<div id="body">
+    <router-outlet></router-outlet>
+</div>
+<!-- FIN CUERPO DEL SITIO -->
+
+<!-- FOOTER -->
+<div class="footer">
+    <p>Sitio desarrollado por Felipe Acosta</p>
+</div>

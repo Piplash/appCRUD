@@ -1,0 +1,44 @@
+{
+  "preparacion": [
+    {
+      "nombre": "Jugo de Naranja ",
+      "creador": "Felipe Acosta",
+      "descripcion": "Jugo de Naranja con toques de menta",
+      "ingredientes": 3,
+      "grados": 0,
+      "creacion": "2022-07-23",
+      "restriccion": false,
+      "id": 1
+    },
+    {
+      "nombre": "Jugo de Frambuesa",
+      "creador": "Felipe Acosta",
+      "descripcion": "Jugo de Frambuesa natural",
+      "ingredientes": 2,
+      "grados": 0,
+      "creacion": "2022-07-23",
+      "restriccion": false,
+      "id": 2
+    },
+    {
+      "nombre": "Mojito",
+      "creador": "Sir Francis Drake",
+      "descripcion": "Preparación de Ron Blanco con menta, limón, jengibre, agua y hielo.",
+      "ingredientes": 6,
+      "grados": 40.2,
+      "creacion": "2022-07-23",
+      "restriccion": true,
+      "id": 3
+    },
+    {
+      "nombre": "Piscola",
+      "creador": "Desconocido",
+      "descripcion": "Preparación de pisco con alguna bebida tipo cola, preferentemente Coca-Cola, y hielos",
+      "ingredientes": 3,
+      "grados": 35.7,
+      "creacion": "2022-07-23",
+      "restriccion": true,
+      "id": 4
+    }
+  ]
+}
